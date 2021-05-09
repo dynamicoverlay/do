@@ -1,0 +1,6 @@
+type Query {
+    user: User
+    overlay(id: String!): Overlay
+    overlays: [Overlay]
+    modules: [Module]
+}

@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest'
+    environment:
+      - RABBITMQ_USERNAME=app
+      - RABBITMQ_PASSWORD=thisIsmyPassword
+    volumes:
+    - rabbitmqdata:/bitnami
+    ports:
+    - 5672:5672
+volumes:
+  rabbitmqdata:

@@ -1,0 +1,30 @@
+type Mutation {
+    createUser(username: String!
+                email: String!
+                password: String!): SignupResponse
+    login(email: String!
+          password: String!): LoginResponse
+    updateUser(username: String, email: String, password: String, previousPassword: String): User
+    verifyEmail(code: String): VerifyEmailResponse
+    updateState(overlay: String!, key: String!, value: String!): UpdateStateResponse
+    createOverlay(name: String!): Overlay
+    addModuleToOverlay(overlayID: String!, moduleID: String!): Overlay
+    removeModuleFromOverlay(overlayID: String!, moduleID: Int!): Overlay
+    updateOverlayModule(overlayID: String!, moduleID: Int!, enabled: Boolean!, settings: String!): OverlayModule
+}
+
+type LoginResponse {
+    token: String!
+}
+
+type SignupResponse {
+    token: String!
+}
+
+type VerifyEmailResponse {
+    verified: Boolean!
+}
+
+type UpdateStateResponse {
+    updated: Boolean!
+}

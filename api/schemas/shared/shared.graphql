@@ -1,0 +1,28 @@
+type User {
+    username: String!
+    email: String!
+    role: String!
+    emailVerified: Boolean!
+}
+
+type Overlay {
+    identifier: String!
+    pin: String!
+    name: String!
+    modules: [OverlayModule]!
+}
+
+type Module {
+    identifier: String!
+    name: String!
+    stateFormat: String!
+    settingsFormat: String!
+}
+
+type OverlayModule {
+    id: Int!
+    module: Module!
+    overlay: Overlay!
+    enabled: Boolean!
+    settings: String!
+}

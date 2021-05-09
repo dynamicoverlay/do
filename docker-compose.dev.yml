@@ -1,0 +1,37 @@
+version: "3.7"
+
+
+services:
+    postgres:
+        image: postgres:latest
+        environment:
+            - "POSTGRES_PASSWORD=thisismypostgres"
+        ports:
+            - 5432:5432
+        volumes:
+            - "dbdata:/var/lib/postgresql/data"
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
+    rabbitmq:
+        image: bitnami/rabbitmq:latest
+        environment:
+            - RABBITMQ_USERNAME=app
+            - RABBITMQ_PASSWORD=thisIsmyPassword
+        volumes:
+            - rabbitmqdata:/bitnami
+        ports:
+            - 5672:5672
+            - 15672:15672
+    redis:
+        image: redis:latest
+        ports:
+            - 6379:6379
+        volumes:
+            - redisdata:/data
+volumes:
+    dbdata:
+    rabbitmqdata:
+    redisdata:
